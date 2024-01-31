@@ -13,97 +13,88 @@ date=$(date +%Y%m%d-%H%M%S)
 logo () {
 	local text="${1:?}"
 	echo -en "                                  
-    ▒▒▒▒▒▒▒▒▄▄▄▄▄▄▄▄▒▒▒▒▒▒
-    ▒▒█▒▒▒▄██████████▄▒▒▒▒
-    ▒█▐▒▒▒████████████▒▒▒▒
-    ▒▌▐▒▒██▄▀██████▀▄██▒▒▒
-    ▐┼▐▒▒██▄▄▄▄██▄▄▄▄██▒▒▒
-    ▐┼▐▒▒██████████████▒▒▒
-    ▐▄▐████─▀▐▐▀█─█─▌▐██▄▒
-    ▒▒█████──────────▐███▌
-    ▒▒█▀▀██▄█─▄───▐─▄███▀▒
-    ▒▒█▒▒███████▄██████▒▒▒
-    ▒▒▒▒▒██████████████▒▒▒
-    ▒▒▒▒▒█████████▐▌██▌▒▒▒
-    ▒▒▒▒▒▐▀▐▒▌▀█▀▒▐▒█▒▒▒▒▒
-    ▒▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▌▒▒▒▒▒
-   Ghost 1n TH3 SSH Dotfiles\n\n"
+      _,     ,_
+    .'/  ,_   \'.
+   |  \__( >__/  |
+   \             /
+    '-..__ __..-'
+         /_\  Dotfiles de Cr1p70, basados en  Ghost1nTh3SSH/dotfiles \n\n"
     printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}" "${CNC}" "${CRE}" "${CNC}"
 }
 
-########## ---------- You must not run this as root ---------- ##########
+########## ---------- NO root ---------- ##########
 not_sudo () {
     if [ "$(id -u)" = 0 ]; then
-        echo "This script MUST NOT be run as root user."
+        echo "Este script NO DEBE ejecutarse como usuario root."
         exit 1
     fi
 } 
 
-########## ---------- Welcome ---------- ##########
+########## ---------- Bienvenida ---------- ##########
 welcome () {
-    logo "Welcome!"
-    printf '%s%sThis script will check if you have the necessary dependencies, and if not, it will install them. Then, it will clone the RICE in your HOME directory.\nAfter that, it will create a secure backup of your files, and then copy the new files to your computer.\n\nMy dotfiles DO NOT modify any of your system configurations.\nYou will be prompted for your root password to install missing dependencies and/or to switch to zsh shell if its not your default.\n\nThis script doesnt have the potential power to break your system, it only copies files from my repository to your HOME directory.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
+    logo "Bienvenido!"
+    printf '%s%sEste script comprobará si tienes las dependencias necesarias, y si no, las instalará. Luego, clonará el RICE en tu directorio HOME.\nDespués, creará una copia de seguridad segura de tus archivos y, a continuación, copiará los nuevos archivos en tu ordenador.\n\nMis Dotfiles no cambian ni modifican ninguna de las configuraciones del sistema.\nSe le pedirá su contraseña de root para instalar las dependencias que faltan y/o para cambiar a zsh shell si no es tu terminal default.\n\nEste script no tiene el poder potencial para romper tu sistema, solo copia los archivos de mi repositorio en el directorio HOME.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
 
     while true; do
-        read -rp " Do you wish to continue? [y/N]: " yn
+        read -rp " Deseas continuar? [y/N]: " yn
             case $yn in
                 [Yy]* ) break;;
                 [Nn]* ) exit;;
-                * ) printf " Error: just write 'y' or 'n'\n\n";;
+                * ) printf " Error: Basta con escribir 'y' o 'n'\n\n";;
             esac
         done
     clear
 }
 
-# ########## ---------- Install packages ---------- ##########
+# ########## ---------- Instalacion de las dependencias---------- ##########
 requirements () {
-    logo "Installing requirements..."
+    logo "Instalando requerimientos..."
 
     packages=(bspwm polybar kitty rofi picom sxhkd lsd feh code firejail neofetch xclip fonts-jetbrains-mono zsh zsh-syntax-highlighting)
 
-    printf "%s%s[+] Checking for required packages...%s\n" "${BLD}" "${CBL}" "${CNC}"
+    printf "%s%s[+] Comprobacion de los paquetes necesarios...%s\n" "${BLD}" "${CBL}" "${CNC}"
     
     for package in "${packages[@]}"
     do
         if ! apt list --installed "$package" 2>/dev/null | grep -q "$package"; then
-            printf '\t- Installing %s...%s\n' "$package"
+            printf '\t- Instalando %s...%s\n' "$package"
             sudo apt install "$package" -y &> /dev/null
             
         else
-            printf '\t- %s is already installed on your system!\n' "$package"
+            printf '\t- %s ya esta instalado en su sistema!\n' "$package"
             sleep 1            
         fi
     done
-    printf '%s[+] All requirements successfully met!%s\n' "$CGR" "$CNC"
+    printf '%s[+] Todos los requisitos necesarios han sido instalados!%s\n' "$CGR" "$CNC"
     sleep 3
     clear
 }
 
-########## ---------- Preparing Folders ---------- ##########
+########## ---------- Preparando Carpetas ---------- ##########
 prepFolders () {
-    logo "Preparing Folders"
+    logo "Preparando Carpetas"
     if [ ! -e $HOME/.config/ ]; then
         mkdir $HOME/.config/
-        printf "\t- Creating $HOME/.config/..."
+        printf "\t- Creando $HOME/.config/..."
     else
-        printf "\t- $HOME/.config/ already exists."
+        printf "\t- $HOME/.config/ Ya existe."
     fi
     sleep 2 
     clear
 }
 
-########## ---------- Copy the Rice! ---------- ##########
+########## ---------- Copias a la Rice! ---------- ##########
 copyRice () {
-    logo "Installing dotfiles..."
-    printf "%s[+] Copying files to respective directories...\n%s" "$CBL" "$CNC"
+    logo "Instalando dotfiles..."
+    printf "%s[+] Copiando a las rutas respectivas...\n%s" "$CBL" "$CNC"
 
     for folder in ./ghost-rice/*; do
         cp -R "${folder}" ~/.config/
         if [ $? -eq 0 ]; then
-            printf "\t-%s folder copied succesfully into '${HOME}/.config/'!%s\n" "${folder}" "${CNC}"
+            printf "\t-%s carpeta copiada con exito dentro de '${HOME}/.config/'!%s\n" "${folder}" "${CNC}"
             sleep 1
-        else
-            printf "\t-%s%s failed to been copied, you must copy it manually%s\n" "${CRE}" "${folder}" "${CNC}"
+        else 0 O
+            printf "\t-%s%s no se ha copiado, debe copiarlo manualmente%s\n" "${CRE}" "${folder}" "${CNC}"
             sleep 1
         fi
     done
@@ -111,10 +102,10 @@ copyRice () {
     for folder in ./misc/*; do
         cp -R -f "${folder}" ~/.local/share/fonts/
         if [ $? -eq 0 ]; then
-            printf "\t-%s copied succesfully into '${HOME}/.local/share/fonts/'!%s\n" "${folder}" "${CNC}"
+            printf "\t-%s copiado con exito dentro de '${HOME}/.local/share/fonts/'!%s\n" "${folder}" "${CNC}"
             sleep 1
         else
-            printf "\t-%s%s failed to been copied, you must copy it manually%s\n" "${CRE}" "${folder}" "${CNC}"
+            printf "\t-%s%s no se ha copiado, debe copiarlo manualmente%s\n" "${CRE}" "${folder}" "${CNC}"
             sleep 1
         fi
     done

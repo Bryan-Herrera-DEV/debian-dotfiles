@@ -50,7 +50,7 @@ welcome () {
 requirements () {
     logo "Instalando requerimientos..."
 
-    packages=(bspwm polybar kitty rofi picom sxhkd lsd feh code firejail neofetch xclip fonts-jetbrains-mono zsh zsh-syntax-highlighting)
+    packages=(bspwm polybar kitty rofi picom sxhkd lsd feh code firejail neofetch xclip fonts-jetbrains-mono zsh zsh-syntax-highlighting flameshot net-tools)
 
     printf "%s%s[+] Comprobacion de los paquetes necesarios...%s\n" "${BLD}" "${CBL}" "${CNC}"
     
@@ -111,13 +111,13 @@ copyRice () {
     done
 
     fc-cache -rv >/dev/null 2>&1
-    printf "%s[+] Files copied succesfully!!%s\n" "${CGR}" "${CNC}"
+    printf "%s[+] Archivos copiados con exito!!%s\n" "${CGR}" "${CNC}"
     sleep 1
 }
 
-########## --------- Changing shell to zsh power10k ---------- ##########
+########## --------- shell a zsh pwlv10k ---------- ##########
 chShell () {
-    logo "Changing default shell to zsh power10k..."
+    logo "Cambiar shell por defecto a zsh power10k..."
 
     # Download powerlevel10k
     if [ ! -d "~/.config/powerlevel10k" ]; then
@@ -128,27 +128,27 @@ chShell () {
     cp -f home/p10k.zsh ~/.p10k.zsh && cp -f home/zshrc ~/.zshrc
 
     if [ $? -eq 0 ]; then
-        printf "\t-%s files copied succesfully into your home directory!%s\n" "${file}" "${CNC}"
+        printf "\t-%s archivos copiados con exito dentro de tu ruta HOME!%s\n" "${file}" "${CNC}"
         sleep 1
     else
-        printf "\t-%s %s failed to been copied, you must copy it manually%s\n" "${CRE}" "${file}" "${CNC}"
+        printf "\t-%s %s no se ha copiado, debe copiarlo manualmente%s\n" "${CRE}" "${file}" "${CNC}"
         sleep 1
     fi
     # done
 
-    printf "%s%sIf your shell is not zsh will be changed now.\nYour root password is needed to make the change.\n\nAfter that is important for you to reboot.\n %s\n" "${BLD}" "${CRE}" "${CNC}"
+    printf "%s%sSi su shell no es zsh se cambiará ahora.\nSu contraseña de root es necesaria para hacer el cambio.\n\nDespués de eso es importante que reinicie.\n %s\n" "${BLD}" "${CRE}" "${CNC}"
     if [[ $SHELL != "/usr/bin/zsh" ]]; then
         echo "Changing shell to zsh, your root password is needed."
         chsh -s /usr/bin/zsh
-        printf "%s%s[+] Installation finished successfully, now reboot the system.\n%sGood bye!\n" "${BLD}" "${CGR}" "${CNC}"
+        printf "%s%s[+] La instalación ha finalizado correctamente, ahora reinicie el sistema.\n%sGood bye!\n" "${BLD}" "${CGR}" "${CNC}"
         zsh
     else
-        printf "%s%s[+] Installation finished successfully, now reboot the system.\n%sGood bye!\n" "${BLD}" "${CGR}" "${CNC}"
+        printf "%s%s[+] Installation finished successfully, now reboot the system.\n%sHasta la Proxima!\n" "${BLD}" "${CGR}" "${CNC}"
         zsh
     fi
 }
 
-########## ---------- Execution ---------- ##########
+########## ---------- Ejecucion ---------- ##########
 not_sudo
 welcome
 requirements

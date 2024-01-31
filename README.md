@@ -1,9 +1,9 @@
 # BSPWM | Polybar themes collection with Theme Selector
 
-Fork from [gh0stzk](https://github.com/gh0stzk/dotfiles) dotfiles adapted for Debian based systems.
+Fork desde [gh0stzk](https://github.com/gh0stzk/dotfiles) & [ghost1nth3ssh](https://github.com/ghost1nth3ssh/dotfiles) dotfiles para sistemas basados en Debain.
 
 ## 🌿 Information
-3 different themes for BSPWM, Polybar and ZSH Powerlevel10k. With a theme selector to change on the fly.
+3 temas diferentes para BSPWM, Polybar y ZSH Powerlevel10k. Con un selector de temas para cambiar sobre la marcha.
 
 ## Info
 <img src="https://github.com/Ghost1nTh3SSH/dotfiles/assets/59705353/edc1ba57-8f4d-4dee-86f7-5a87060ade52" alt="Linux Fetch" align="right" width="450">
@@ -22,13 +22,13 @@ Fork from [gh0stzk](https://github.com/gh0stzk/dotfiles) dotfiles adapted for De
 ## 🚀 Features
 <img src="https://github.com/Ghost1nTh3SSH/dotfiles/assets/59705353/789b6e18-1502-42ae-b717-426905734c4f" alt="Rice Menu" align="right" width="400px">
 
-* **Change themes on the fly:** 3 different Rices now!.
+* **Cambia temas sobre la Marcha:** 3 Rices diferentes ahora!.
 
-* **Theme Selector:** <code>alt + space bar</code> to launch it.
+* **Selector de temas:** <code>alt + space bar</code> para ejecutarlo.
 
-* **Random wallpaper:**  Every time you switch between rices or reload bspwm with <code>super + alt + r</code> a new wallpaper is set depending on the rice you are on.
+* **Wallpaper Aleatorio:**  Cada vez que cambias entre rices o recargas bspwm con <code>super + alt + r</code> se pone un nuevo fondo de pantalla dependiendo del rice en el que estés.
 
-* **Wallpaper Changer** <code>super + alt + w</code> changes bethween different wallpapers in the actual rice.
+* **Wallpaper tool** <code>super + alt + w</code> cambia entre los diferentes fondos de pantalla en el rice real.
 
 **And more..**
 
@@ -40,7 +40,7 @@ Fork from [gh0stzk](https://github.com/gh0stzk/dotfiles) dotfiles adapted for De
 |---|---|
 
 <details>
-<summary><b>Extra wallpapers in Cthulhu</b></summary>
+<summary><b>Wallpapers Extra en Cthulhu</b></summary>
 
 |<img src="ghost-rice/bspwm/themes/cthulhu/walls/1.jpg" alt="Cthulhu Rice" align="center" width="150px">||<img src="ghost-rice/bspwm/themes/cthulhu/walls/2.jpg" alt="Cthulhu Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/cthulhu/walls/3.jpg" alt="Cthulhu Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/cthulhu/walls/4.jpg" alt="Cthulhu Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/cthulhu/walls/5.jpg" alt="Cthulhu Rice" align="center" width="150px">|
 
@@ -52,7 +52,7 @@ Fork from [gh0stzk](https://github.com/gh0stzk/dotfiles) dotfiles adapted for De
 |---|---|
 
 <details>
-<summary><b>Extra wallpapers in Ghost</b></summary>
+<summary><b>Wallpapers Extra En Ghost</b></summary>
 
 |<img src="ghost-rice/bspwm/themes/ghost/walls/2.jpg" alt="Ghost Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/ghost/walls/3.jpg" alt="Ghost Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/ghost/walls/4.jpg" alt="Ghost Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/ghost/walls/5.jpg" alt="Ghost Rice" align="center" width="150px">|
 
@@ -64,26 +64,28 @@ Fork from [gh0stzk](https://github.com/gh0stzk/dotfiles) dotfiles adapted for De
 |---|---|
 
 <details>
-<summary><b>Extra wallpapers in Lain</b></summary>
+<summary><b>Wallpapers Extra en Lain</b></summary>
 
 |<img src="ghost-rice/bspwm/themes/lain/walls/2.jpg" alt="Lain Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/lain/walls/3.jpg" alt="Lain Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/lain/walls/4.jpg" alt="Lain Rice" align="center" width="150px">|<img src="ghost-rice/bspwm/themes/lain/walls/5.jpg" alt="Lain Rice" align="center" width="150px">|
 
 </details>
 
-## Very useful keybindigs to know...
-- <code>super + h </code> Display keybindings help.
-- <code>alt + @space</code> Display menu to select theme selector.
-- <code>super + shift + v</code> Open Visual Studio Code.
-- <code>super + shift + f</code> Open Firefox.
-- <code>super + shift + b</code> Open Burpsuite.
-- <code>ctrl + super + alt + p</code> Power off computer. <code>ctrl + super + alt + r</code> Restart computer.
-- <code>super + Return</code> Open a terminal.
-- <code>super + Alt + Return</code> Open a floating terminal.
-- <code>ctrl + super + alt + k</code> Brute Kill a window/process.
-- <code>super + alt + w</code> Changes randomly wallpaper.
-- <code>super + alt + r</code> Restart bspwm.
+## Keybindigs muy útiles de conocer...
+- super + h                  Muestra la ayuda de atajos de teclado.
+- alt + espacio              Muestra el menú para seleccionar el selector de temas.
+- super + shift + v          Abre Visual Studio Code.
+- super + shift + f          Abre Firefox.
+- super + shift + b          Abre Burpsuite.
+- ctrl + super + alt + p     Apaga el ordenador. 
+- ctrl + super + alt + r     Reinicia el ordenador.
+- super + Return             Abre un terminal.
+- super + Alt + Return       Abre un terminal flotante.
+- ctrl + super + alt + k     Mata bruscamente una ventana/proceso.
+- super + alt + w            Cambia aleatoriamente el fondo de pantalla.
+- super + alt + r            Reinicia bspwm.
 
-And more.. You need to look sxhkdrc file for more.
+
+Y mas.. Usted necesita ver el archivo sxhkdrc para más.
 
 ## 📦 setup
 
@@ -103,6 +105,3 @@ cd dotfiles
 ```sh
 ./installer.sh
 ```
-
-## Credits
-- [s4vitar](https://github.com/s4vitar) [gh0stzk](https://github.com/gh0stzk/dotfiles) [turquoise-hexagon](https://github.com/turquoise-hexagon/fonts), [adi1090x](https://github.com/adi1090x/widgets), [gabrielzschmitz](https://github.com/gabrielzschmitz), [elenapan](https://github.com/elenapan/dotfiles), [rxyhn](https://github.com/rxyhn/bspdots), [okklol](https://github.com/okklol/eww-bar), [ikz87](https://github.com/ikz87).
